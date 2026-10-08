@@ -1,0 +1,87 @@
+        body {
+            background-color: #fdfcfc; /* Blanco roto muy sutil */
+            color: #1a1a1a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Ocultar scrollbar pero permitir scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Clases utilitarias de estado */
+        .hidden-view {
+            display: none !important;
+        }
+
+        /* Estilos de inputs minimalistas */
+        .input-minimal {
+            border: none;
+            border-bottom: 1px solid #e5e5e5;
+            border-radius: 0;
+            padding: 10px 0;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+        .input-minimal:focus {
+            outline: none;
+            border-bottom: 1px solid #1a1a1a;
+            box-shadow: none;
+        }
+
+        /* Botón de lujo animado */
+        .btn-luxury {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+            z-index: 1;
+        }
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        .btn-luxury:hover::before {
+            left: 0;
+        }
+        .btn-luxury:hover {
+            color: #ffffff;
+            border-color: #1a1a1a;
+        }
+
+        /* Custom details/summary (Acordeones) */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: slideDown 0.3s ease-in-out;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Loader */
+        .loader {
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
